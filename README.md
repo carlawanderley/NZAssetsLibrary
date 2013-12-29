@@ -1,4 +1,4 @@
-#NZAssetsLibrary
+#NZAssetsLibrary ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
 NZAssetsLibrary is a ALAssetsLibrary extension.
 This class save, delete and load images from specific album or device folder.
