@@ -6,6 +6,7 @@ This class save, delete and load images from specific album or device folder.
 [![Build Status](https://api.travis-ci.org/NZN/NZAssetsLibrary.png)](https://api.travis-ci.org/NZN/NZAssetsLibrary.png)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/v/NZAssetsLibrary/badge.png)](http://beta.cocoapods.org/?q=name%3Anzassetslibrary%2A)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/p/NZAssetsLibrary/badge.png)](http://beta.cocoapods.org/?q=name%3Anzassetslibrary%2A)
+[![Analytics](https://ga-beacon.appspot.com/UA-48753665-1/NZN/NZAssetsLibrary/README.md)](https://github.com/igrigorik/ga-beacon)
 
 ## Requirements
 
