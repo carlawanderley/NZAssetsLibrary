@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'NZAssetsLibrary+Thumbnails'
-  s.version = ‘0.0.2’
+  s.version = '0.0.2'
   s.license = 'MIT'
   s.summary = 'Save, delete and load images from specific album or device folder. This fork adds optimized functionalities for loading thumbnails.'
   s.homepage	 = 'https://github.com/carlawanderley/NZAssetsLibrary'
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
  
   s.ios.frameworks = 'AssetsLibrary'
   s.source_files = 'NZAssetsLibrary/**/*.{h,m}'
-  s.source = { :git => 'https://github.com/carlawanderley/NZAssetsLibrary.git', :tag => ‘0.0.2’ }
+  s.source = { :git => 'https://github.com/carlawanderley/NZAssetsLibrary.git', :tag => '0.0.2' }
 end
