@@ -27,8 +27,9 @@
 #import "NZAssetFile.h"
 #import "NZAssetImageFile.h"
 
-typedef void(^SaveImageCompletion)(NSError* error);
-typedef void(^LoadImagesCallback)(NSArray<NZAssetImageFile> *items, NSError *error);
+typedef void (^SaveImageCallback)(UIImage *image, NSError *error);
+typedef void (^SaveImageCompletion)(NSError *error);
+typedef void (^LoadImagesCallback)(NSArray <NZAssetImageFile> *items, NSError *error);
 
 
 
@@ -36,22 +37,26 @@ typedef void(^LoadImagesCallback)(NSArray<NZAssetImageFile> *items, NSError *err
 
 + (NZAssetsLibrary *)defaultAssetsLibrary;
 
-- (instancetype) init
-__attribute__((unavailable("[-init] is not allowed, use [+defaultAssetsLibrary]")));
+- (instancetype)init __attribute__((unavailable("[-init] is not allowed, use [+defaultAssetsLibrary]")));
 
 - (void)deleteFile:(NZAssetFile *)file;
 
 - (void)loadImagesFromAlbum:(NSString *)albumName
                withCallback:(LoadImagesCallback)callback;
 
-- (NSArray<NZAssetImageFile> *)loadImagesFromDocumentDirectory;
+- (NSArray <NZAssetImageFile> *)loadImagesFromDocumentDirectory;
 
-- (void)saveImage:(UIImage *)image
-          toAlbum:(NSString *)albumName
-   withCompletion:(SaveImageCompletion)completion;
+- (void) saveImage:(UIImage *)image
+           toAlbum:(NSString *)albumName
+    withCompletion:(SaveImageCompletion)completion;
 
 - (void)saveJPGImageAtDocumentDirectory:(UIImage *)image;
 
 - (void)savePNGImageAtDocumentDirectory:(UIImage *)image;
+
+- (void)loadLargeImageFromPath:(NSString *)assetPath withCallback:(SaveImageCallback)callback;
+
+- (void)loadImageThumbnailsFromAlbum:(NSString *)albumName
+                        withCallback:(LoadImagesCallback)callback;
 
 @end
