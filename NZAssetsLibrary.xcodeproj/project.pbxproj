@@ -230,6 +230,11 @@
 				CLASSPREFIX = NZ;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "No Zebra Network";
+				TargetAttributes = {
+					F8E693971859C7E300811C03 = {
+						DevelopmentTeam = H62B4T98ND;
+					};
+				};
 			};
 			buildConfigurationList = F8E693931859C7E300811C03 /* Build configuration list for PBXProject "NZAssetsLibrary" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -412,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/SupportingFiles/NZAssetsLibrary-Prefix.pch";
 				INFOPLIST_FILE = "Example/SupportingFiles/NZAssetsLibrary-Info.plist";
@@ -426,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/SupportingFiles/NZAssetsLibrary-Prefix.pch";
 				INFOPLIST_FILE = "Example/SupportingFiles/NZAssetsLibrary-Info.plist";

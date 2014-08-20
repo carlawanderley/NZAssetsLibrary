@@ -30,7 +30,7 @@
 typedef void (^SaveImageCallback)(UIImage *image, NSError *error);
 typedef void (^SaveImageCompletion)(NSError *error);
 typedef void (^LoadImagesCallback)(NSArray <NZAssetImageFile> *items, NSError *error);
-
+typedef void (^ImageNamesCallback)(NSArray *fileNames, NSError *error);
 
 
 @interface NZAssetsLibrary : ALAssetsLibrary
@@ -58,5 +58,7 @@ typedef void (^LoadImagesCallback)(NSArray <NZAssetImageFile> *items, NSError *e
 
 - (void)loadImageThumbnailsFromAlbum:(NSString *)albumName
                         withCallback:(LoadImagesCallback)callback;
+
+- (void)getImageFileNamesFromAlbum:(NSString *)albumName withCallback:(ImageNamesCallback)callback;
 
 @end

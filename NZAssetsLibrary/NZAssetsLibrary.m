@@ -312,6 +312,48 @@
 	                  failureBlock:assetGroupEnumeratorFailure];
 }
 
+- (void)getImageFileNamesFromAlbum:(NSString *)albumName withCallback:(ImageNamesCallback)callback {
+	__block NSMutableArray *fileNames = [@[] mutableCopy];
+	dispatch_group_t dgroup = dispatch_group_create();
+	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+	// Group enumerator Block (Go through each album)
+	void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) = [ ^(ALAssetsGroup *group, BOOL *stopGroup) {
+	    // Successfully completed
+	    if ([albumName compare:[group valueForProperty:ALAssetsGroupPropertyName]] != NSOrderedSame) {
+	        // Finished Enumeration
+	        return;
+		}
+
+	    dispatch_group_async(dgroup, queue, ^{
+	            // Asset enumerator Block (Go through each asset)
+	            [group enumerateAssetsUsingBlock:[ ^(ALAsset *result, NSUInteger index, BOOL *stopAsset) {
+	                        if (result) {
+	                            NSString *originalFileName = [result.defaultRepresentation filename];
+
+	                            [fileNames addObject:originalFileName];
+							}
+
+	                        return;
+						} copy]];
+			});
+	    dispatch_group_wait(dgroup, DISPATCH_TIME_FOREVER);
+	    // Finished enumerating assets
+	    callback(fileNames, nil);
+	} copy];
+
+	// Group Enumerator Failure Block
+	void (^assetGroupEnumeratorFailure)(NSError *) = [ ^(NSError *error) {
+	    callback(nil, error);
+	} copy];
+
+	// Sync all groups.
+	[self enumerateGroupsWithTypes:ALAssetsGroupAll
+	                    usingBlock:assetGroupEnumerator
+	                  failureBlock:assetGroupEnumeratorFailure];
+	callback(nil, nil);
+}
+
 - (void)loadLargeImageFromPath:(NSString *)assetPath withCallback:(SaveImageCallback)callback {
 	//
 	ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
